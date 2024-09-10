@@ -69,8 +69,12 @@ onUnmounted(unsubscribe)
         <form @submit.prevent="add" class=" bg-white shadow rounded-xl px-4 divide-y">
             <div class=" py-4 flex gap-4">
                 <img :src="photoURL" class=" size-12 rounded-full object-cover">
-                <input v-model.trim="message" required :placeholder="`What's on your mind, ${displayName}?`" class=" bg-gray-100 flex-1 px-4 rounded-full text-sm outline-none">
-                <button hidden :disabled="loading"></button>
+                <div class="bg-gray-100 flex-1 px-4 rounded-full text-sm flex gap-4">
+                    <input v-model.trim="message" required :placeholder="`What's on your mind, ${displayName}?`" class=" outline-none flex-1 bg-transparent">
+                    <button :disabled="loading" class=" text-gray-400">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
             </div>
             <img :src="photo" v-if="photo" @click="photo = null" class=" rounded-xl w-full cursor-pointer">
             <div class=" py-4 flex justify-evenly">
